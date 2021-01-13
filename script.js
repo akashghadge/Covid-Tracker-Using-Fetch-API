@@ -1,22 +1,22 @@
 // console.log("project 3");
-if (location.href == "https://akashghadge.github.io/Covid-Tracker-Using-Fetch-API/covidTracker.html") {
-    console.log("we are on covid page");
-    let source = "https://api.apify.com/v2/key-value-stores/tVaYRsPHLjNdNBu7S/records/LATEST?disableRedirect=true"
-    console.log("helllo");
+// if (location.href == "https://akashghadge.github.io/Covid-Tracker-Using-Fetch-API/covidTracker.html") {
+console.log("we are on covid page");
+let source = "https://api.apify.com/v2/key-value-stores/tVaYRsPHLjNdNBu7S/records/LATEST?disableRedirect=true"
+console.log("helllo");
 
-    function loadingEffect() {
-        // console.log("hi this is loaidn");
-        let str = "";
-        let covidDetailsShow = document.getElementById("covidDetailsShow");
-        str = `
+function loadingEffect() {
+    // console.log("hi this is loaidn");
+    let str = "";
+    let covidDetailsShow = document.getElementById("covidDetailsShow");
+    str = `
             <p>content is loading</p>
         `
-        covidDetailsShow.innerHTML = str;
-    }
+    covidDetailsShow.innerHTML = str;
+}
 
-    function signInNotification(element, text) {
-        let notification = document.getElementById("notificationLoad");
-        signNotificationSucces = `
+function signInNotification(element, text) {
+    let notification = document.getElementById("notificationLoad");
+    signNotificationSucces = `
         <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong>${text}</strong>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -24,30 +24,30 @@ if (location.href == "https://akashghadge.github.io/Covid-Tracker-Using-Fetch-AP
                 </button> 
                 </div>`
 
-        signNotificationdanger = `
+    signNotificationdanger = `
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong>Somthing Is Wrong</strong> You should check in on some of those fields below.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button> 
         </div>`
-        if (element) {
-            notification.innerHTML = signNotificationSucces;
-        } else {
-            notification.innerHTML = signNotificationdanger;
-        }
-        setTimeout(() => {
-            notification.innerHTML = "";
-        }, 2000);
+    if (element) {
+        notification.innerHTML = signNotificationSucces;
+    } else {
+        notification.innerHTML = signNotificationdanger;
     }
+    setTimeout(() => {
+        notification.innerHTML = "";
+    }, 2000);
+}
 
-    function displsyContent(obj) {
-        // console.log("displaying content");
-        let str = "";
-        let covidDetailsShow = document.getElementById("covidDetailsShow");
-        obj = Array.from(obj);
-        obj.forEach(function (element, index) {
-            str += `
+function displsyContent(obj) {
+    // console.log("displaying content");
+    let str = "";
+    let covidDetailsShow = document.getElementById("covidDetailsShow");
+    obj = Array.from(obj);
+    obj.forEach(function (element, index) {
+        str += `
             <div class="col-md-4" id=${index}>
                 <h2 class="align-content-center">${element.country}</h2>
                 <table class="table">
@@ -66,31 +66,31 @@ if (location.href == "https://akashghadge.github.io/Covid-Tracker-Using-Fetch-AP
             </table>
             <hr>
             </div> `
-        });
-        covidDetailsShow.innerHTML = str;
-    }
-    // console.log("hello");
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", source, true);
-    xhr.onprogress = function () {
-        loadingEffect();
-    }
-    xhr.onload = function () {
-        if (this.status == 200) {
-            // console.log("succefull");
-            let obj = this.responseText;
-            obj = JSON.parse(obj);
-            // console.log(obj);
-            displsyContent(obj);
-            signInNotification(1, "Succesfully Added content")
-        } else {
-            signInNotification(0, "Something Went Wrong")
-            console.log("fetching is not possible");
-        }
-    };
-    xhr.send();
-
+    });
+    covidDetailsShow.innerHTML = str;
 }
+// console.log("hello");
+const xhr = new XMLHttpRequest();
+xhr.open("GET", source, true);
+xhr.onprogress = function () {
+    loadingEffect();
+}
+xhr.onload = function () {
+    if (this.status == 200) {
+        // console.log("succefull");
+        let obj = this.responseText;
+        obj = JSON.parse(obj);
+        // console.log(obj);
+        displsyContent(obj);
+        signInNotification(1, "Succesfully Added content")
+    } else {
+        signInNotification(0, "Something Went Wrong")
+        console.log("fetching is not possible");
+    }
+};
+xhr.send();
+
+// }
 
 if (location.href == "https://akashghadge.github.io/Covid-Tracker-Using-Fetch-API/unitConversion.html") {
 
@@ -138,7 +138,7 @@ if (location.href == "https://akashghadge.github.io/Covid-Tracker-Using-Fetch-AP
 
 }
 
-if (location.href == "https://akashghadge.github.io/Covid-Tracker-Using-Fetch-API/index.html") {
+if (location.href == "https://akashghadge.github.io/Covid-Tracker-Using-Fetch-API/") {
     // console.log("helloe");
 
     function displayQuotes(objQuote) {
