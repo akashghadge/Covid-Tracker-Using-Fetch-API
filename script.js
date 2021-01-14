@@ -140,7 +140,7 @@ if (location.href == "https://akashghadge.github.io/Covid-Tracker-Using-Fetch-AP
 
 if (location.href == "https://akashghadge.github.io/Covid-Tracker-Using-Fetch-API/") {
     // console.log("helloe");
-
+    console.log("on home page");
     function displayQuotes(objQuote) {
         let quoteDiv = document.getElementById("quotes");
         let str = "";
