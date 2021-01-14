@@ -73,6 +73,8 @@ if (location.href == "https://akashghadge.github.io/Covid-Tracker-Using-Fetch-AP
     const xhr = new XMLHttpRequest();
     xhr.open("GET", source, true);
     xhr.onprogress = function () {
+        let covidDetailsShow = document.getElementById("covidDetailsShow")
+        covidDetailsShow.innerHTML = `<h3>Loading ...</h3>`
         loadingEffect();
     }
     xhr.onload = function () {
